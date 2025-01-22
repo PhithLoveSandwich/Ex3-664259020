@@ -1,29 +1,60 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Account = void 0;
+const ShoppingCart_1 = require("./ShoppingCart");
 class Account {
-    constructor(accountId, accountName, email) {
-        this.accountId = accountId;
-        this.accountName = accountName;
-        this.email = email;
+    constructor(id, billing_address, is_closed, open, closed) {
+        this.payment = [];
+        this.order = [];
+        this.shoppingCart = new ShoppingCart_1.ShoppingCart(`22-01-2024`);
+        this.id = id;
+        this.billing_address = billing_address;
+        this.is_closed = is_closed;
+        this.open = open;
+        this.closed = closed;
     }
-    getAccountId() {
-        return this.accountId;
+    getid() {
+        return this.id;
     }
-    getAccountName() {
-        return this.accountName;
+    getBilling() {
+        return this.billing_address;
     }
-    setAccountName(accountName) {
-        this.accountName = accountName;
+    setBilling(billing_address) {
+        this.billing_address = billing_address;
     }
-    getEmail() {
-        return this.email;
+    getISClosed() {
+        return this.is_closed;
     }
-    setEmail(email) {
-        this.email = email;
+    setISClosed(is_closed) {
+        this.is_closed = is_closed;
+    }
+    getOpen() {
+        return this.open;
+    }
+    setOpen(open) {
+        this.open = open;
+    }
+    getClose() {
+        return this.closed;
+    }
+    setClose(closed) {
+        this.closed = closed;
+    }
+    addOrder(order) {
+        this.order.push(order);
+    }
+    addPayment(payment) {
+        this.payment.push(payment);
+    }
+    getPayments() {
+        return this.payment;
+    }
+    getOrders() {
+        return this.order;
     }
     toString() {
-        return `Account [ID=${this.getAccountId()}, Name=${this.getAccountName()}, Email=${this.getEmail()}]`;
+        return `Account = [id = "${this.getid()}", billing_address = "${this.getBilling()}",
+         is_closed = "${this.getISClosed()}", open = "${this.getOpen()}", closed = "${this.getClose()}"]`;
     }
 }
 exports.Account = Account;

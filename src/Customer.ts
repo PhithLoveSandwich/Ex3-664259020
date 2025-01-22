@@ -1,13 +1,15 @@
 import { WebUser } from "./WebUser";
-
+import { Account } from "./Account";
 class Customer {
+    private account:Account;
     private id: string;
     private address: string;
     private phone: string;
     private email: string;
     private webUser: WebUser;
 
-    constructor(id: string, address: string, phone: string, email: string,webUser:WebUser) {
+    constructor(account:Account, id: string, address: string, phone: string, email: string,webUser:WebUser) {
+        this.account = account;
         this.webUser = webUser;
         this.id = id;
         this.address = address;

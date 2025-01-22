@@ -1,47 +1,38 @@
-class Payment {
-    private paymentId: string;
-    private amount: number;
-    private paymentDate: string;
-    private paymentMethod: string;
+export class Payment{
+    private id:string
+    private paid:string
+    private total:string
+    private detail:string
 
-    constructor(paymentId: string, amount: number, paymentDate: string, paymentMethod: string) {
-        this.paymentId = paymentId;
-        this.amount = amount;
-        this.paymentDate = paymentDate;
-        this.paymentMethod = paymentMethod;
+    constructor(id:string,paid:string,total:string,detail:string){
+        this.id = id
+        this.paid = paid
+        this.total = total
+        this.detail = detail
     }
 
-    public getPaymentId(): string {
-        return this.paymentId;
+    public getID():string{
+        return this.id
     }
-
-    public getAmount(): number {
-        return this.amount;
+    public getPaid():string{
+        return this.paid
     }
-
-    public setAmount(amount: number): void {
-        this.amount = amount;
+    public setPaid(paid:string):void{
+        this.paid = this.paid
     }
-
-    public getPaymentDate(): string {
-        return this.paymentDate;
+    public getTotal():string{
+        return this.total
     }
-
-    public setPaymentDate(paymentDate: string): void {
-        this.paymentDate = paymentDate;
+    public setTotal(total:string):void{
+        this.total =this.total
     }
-
-    public getPaymentMethod(): string {
-        return this.paymentMethod;
+    public getDetail():string{
+        return this.detail
     }
-
-    public setPaymentMethod(paymentMethod: string): void {
-        this.paymentMethod = paymentMethod;
+    public setDetail(detail:string):void{
+        this.detail =this.detail
     }
-
-    public toString(): string {
-        return `Payment [ID=${this.getPaymentId()}, Amount=${this.getAmount()}, Date=${this.getPaymentDate()}, Method=${this.getPaymentMethod()}]`;
+    public toString():string{
+        return `Payment = [id="${this.getID()}",paid="${this.getPaid()}",total="${this.getTotal()}",detail="${this.getDetail()}"]`
     }
 }
-
-export { Payment };

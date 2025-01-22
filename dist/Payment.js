@@ -2,35 +2,35 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Payment = void 0;
 class Payment {
-    constructor(paymentId, amount, paymentDate, paymentMethod) {
-        this.paymentId = paymentId;
-        this.amount = amount;
-        this.paymentDate = paymentDate;
-        this.paymentMethod = paymentMethod;
+    constructor(id, paid, total, detail) {
+        this.id = id;
+        this.paid = paid;
+        this.total = total;
+        this.detail = detail;
     }
-    getPaymentId() {
-        return this.paymentId;
+    getID() {
+        return this.id;
     }
-    getAmount() {
-        return this.amount;
+    getPaid() {
+        return this.paid;
     }
-    setAmount(amount) {
-        this.amount = amount;
+    setPaid(paid) {
+        this.paid = this.paid;
     }
-    getPaymentDate() {
-        return this.paymentDate;
+    getTotal() {
+        return this.total;
     }
-    setPaymentDate(paymentDate) {
-        this.paymentDate = paymentDate;
+    setTotal(total) {
+        this.total = this.total;
     }
-    getPaymentMethod() {
-        return this.paymentMethod;
+    getDetail() {
+        return this.detail;
     }
-    setPaymentMethod(paymentMethod) {
-        this.paymentMethod = paymentMethod;
+    setDetail(detail) {
+        this.detail = this.detail;
     }
     toString() {
-        return `Payment [ID=${this.getPaymentId()}, Amount=${this.getAmount()}, Date=${this.getPaymentDate()}, Method=${this.getPaymentMethod()}]`;
+        return `Payment = [id="${this.getID()}",paid="${this.getPaid()}",total="${this.getTotal()}",detail="${this.getDetail()}"]`;
     }
 }
 exports.Payment = Payment;

@@ -2,28 +2,21 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ShoppingCart = void 0;
 class ShoppingCart {
-    constructor(cartId) {
-        this.items = [];
-        this.cartId = cartId;
+    constructor(created) {
+        this.lineItem = [];
+        this.created = created;
     }
-    addProduct(product, quantity) {
-        this.items.push({ product, quantity });
+    getCreated() {
+        return this.created;
     }
-    removeProduct(productId) {
-        this.items = this.items.filter(item => item.product.getPid() !== productId);
+    addLineItems(lineItem) {
+        this.lineItem.push(lineItem);
     }
-    calculateTotal() {
-        return this.items.reduce((total, item) => {
-            return total + item.product.getSupplier().length * item.quantity;
-        }, 0);
-    }
-    listItems() {
-        return this.items
-            .map(item => `${item.product.getName()} x ${item.quantity}`)
-            .join(", ");
+    getLineItems() {
+        return this.lineItem;
     }
     toString() {
-        return `ShoppingCart [ID=${this.cartId}, Items=[${this.listItems()}]]`;
+        return `ShoppingCardt = [Created=${this.getCreated},lineItem=${this.lineItem.toString()}]`;
     }
 }
 exports.ShoppingCart = ShoppingCart;

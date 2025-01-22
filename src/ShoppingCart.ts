@@ -1,36 +1,24 @@
-import { Product } from "./Product";
-
-class ShoppingCart {
-    private cartId: string;
-    private items: { product: Product; quantity: number }[] = [];
-
-    constructor(cartId: string) {
-        this.cartId = cartId;
+import { LineItem } from "./LineItem"
+export class ShoppingCart{
+    private lineItem: LineItem[] =[];
+    private created:string
+    constructor(created:string){
+        this.created = created
     }
 
-    public addProduct(product: Product, quantity: number): void {
-        this.items.push({ product, quantity });
+    public getCreated():string{
+        return this.created
     }
 
-    public removeProduct(productId: string): void {
-        this.items = this.items.filter(item => item.product.getPid() !== productId);
+    public addLineItems(lineItem:LineItem):void{
+        this.lineItem.push(lineItem)
     }
 
-    public calculateTotal(): number {
-        return this.items.reduce((total, item) => {
-            return total + item.product.getSupplier().length * item.quantity; 
-        }, 0);
+    public getLineItems():LineItem[]{
+        return this.lineItem
     }
 
-    public listItems(): string {
-        return this.items
-            .map(item => `${item.product.getName()} x ${item.quantity}`)
-            .join(", ");
-    }
-
-    public toString(): string {
-        return `ShoppingCart [ID=${this.cartId}, Items=[${this.listItems()}]]`;
+    public toString():string{
+        return `ShoppingCardt = [Created=${this.getCreated},lineItem=${this.lineItem.toString()}]`
     }
 }
-
-export { ShoppingCart };
